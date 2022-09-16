@@ -27,37 +27,55 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 </div>
                 <div class="mb-3">
                     <label for="Telefono" class="form-label"> <h6>Ingrese un Teléfono:</h6></label>
-                    <input type="text" class="form-control" id="Telefono" aria-describedby="escriba su telefono">
+                    <input type="text" class="form-control" id="Telefono" nane="Telefono" aria-describedby="escriba su telefono">
                 </div>
                 <div class="mb-3">
                     <label for="FechaN" class="form-label"> <h6>Ingrese su fecha de nacimiento:</h6></label>
-                    <input type="text" class="form-control" id="FechaN" aria-describedby="escriba su fecha de nacimiento">
+                    <input type="date" class="form-control" id="FechaN" name="FechaN" aria-describedby="escriba su fecha de nacimiento">
                 </div>
                 <div class="mb-3">
                     <label for="Color" class="form-label"> <h6>Ingrese su color favorito</h6></label>
-                    <input type="text" class="form-control" id="Color" aria-describedby="escriba su color favorito">
+                    <input type="text" class="form-control" id="Color" name="Color" aria-describedby="escriba su color favorito">
                 </div>   
-                <button type="submit" class="btn btn-primary" name="submit">Guardar</button>                                 
+               <button type="submit" class="btn btn-primary"  data-bs-toggle="collapse" href="#tablaP"   aria-expanded="false" aria-controls="collapseExample"  name="submit">Guardar</button>                                 
             </form>
         </div>
         <!--------------------------------------------->    
         <?php
-        $nombres; 
-        $direccion ;
-        $telefono;
-        $fechaN;
-        $color;
-        $significado;
-        if(isset($_GET["submit"])&& !empty($_GET["submit"])) {
-            $nombres = $_GET["Nombre0"];
-
+        if(empty($_GET["Nombre0"])){
+            $nombres = "pendientes";
+        }else{$nombres = $_GET["Nombre0"];}
+        if(empty($_GET["Direccion"])){
+            $direccion = "pendientes";
+        }else{$direccion = $_GET["Direccion"];}        
+        if(empty($_GET["Telefono"])){
+            $telefono = "pendientes";
+        }else{$direccion = $_GET["Telefono"];}           
+        if(empty($_GET["FechaN"])){
+            $fechaN = "pendiente";
         }
+        else{
+            $fechaN = $_GET["FechaN"];
+            $cumpleA = date("d/m/Y", strtotime($fechaN));
+            $month= date("d",strtotime($cumpleA));
+            $day = date("m",strtotime($cumpleA));
+            $year = date("Y",strtotime($cumpleA));
+            $actual = date('Y');
+            if("$year" != "$actual"){
+            $fechaN = array('Dia:',$day,' Mes: ',$month,' Año: ',$year);
+            }
+        }               
+        if(empty($_GET["Color"])){
+            $color = "pendientes";
+        }else{$color = $_GET["Color"];}               
         ?>
-        <div class="container border   border-secondary border-4 rounded bg-secondary bg-success p-2" style="--bs-bg-opacity: .1;">
-            <table class="table rounded" id="tablaP">
+        <hr>
+        <div class=" container border   border-secondary border-4 rounded bg-secondary bg-success p-2" style="--bs-bg-opacity: .1;" id="tablaP">
+            <table class="table rounded">
+                
                 <thead class="bg-primary bg-succes p-2" style="--bs-bg-opacity: .2;">
                     <tr>
-                        <th scope="col">Nombre</th>
+                        <th scope="col ">Nombre</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Teléfono</th>
                         <th scope="col">Fecha de Cumpleaños</th>
@@ -66,10 +84,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row"><?php echo "$nombres"?></th>
-
-                        <td colspan="2"><?php echo "$direccion"?></td>
+                    <tr class="fs-6">
+                        <th scope="row"><?php echo "$nombres"; ?></th>
+                        <th scope="row"><?php echo "$direccion"; ?></th>
+                        <th scope="row"><?php echo "$telefono"; ?></th>
+                        <th scope="row"><?php print_r("$fechaN") ; ?></th>
+                        <th scope="row"><?php echo "$color"; ?></th>
+                        <th scope="row"></th>                        
+                        <td colspan="2"></td>
                     </tr>
                 </tbody>
             </table>
