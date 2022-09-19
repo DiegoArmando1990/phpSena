@@ -45,12 +45,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         if(empty($_GET["Nombre0"])){
             $nombres = "pendientes";
         }else{$nombres = $_GET["Nombre0"];}
+        
         if(empty($_GET["Direccion"])){
             $direccion = "pendientes";
-        }else{$direccion = $_GET["Direccion"];}        
+        }else{$direccion = $_GET["Direccion"];}  
+        
         if(empty($_GET["Telefono"])){
             $telefono = "pendientes";
-        }else{$direccion = $_GET["Telefono"];}           
+        }else{$direccion = $_GET["Telefono"];}  
+        
         if(empty($_GET["FechaN"])){
             $fechaN = "pendiente";
         }
@@ -62,12 +65,192 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             $year = date("Y",strtotime($cumpleA));
             $actual = date('Y');
             if("$year" != "$actual"){
-            $fechaN = array('Dia:',$day,' Mes: ',$month,' Año: ',$year);
+            $fechaN = array('Dia:',$day,' Mes: ',$month,' Año: ',$actual);
             }
-        }               
+        }   
+        
+        /*gestion de colores*/
         if(empty($_GET["Color"])){
             $color = "pendientes";
-        }else{$color = $_GET["Color"];}               
+        }else{
+            $color = $_GET["Color"];
+            switch ($color)
+            {
+                case "amarillo":
+                    $amarillo = "su color preferido es amarillo";
+                    $color = $amarillo;
+                    break;
+                case "Amarillo":
+                    $amarillo = "su color preferido es amarillo";
+                    $color = $amarillo;
+                    break;
+                case "AMARILLO":
+                    $amarillo = "su color preferido es amarillo";
+                    $color = $amarillo;
+                    break;
+                case "azul":
+                    $azul = "su color preferido es azul";
+                    $color = $azul;
+                    break;
+                case "Azul":
+                    $azul = "su color preferido es azul";
+                    $color = $azul;
+                    break;
+                case "blanco":
+                    $blanco = "su color preferido es blanco";
+                    $color = $blanco;
+                    break; 
+                case "Blanco":
+                    $blanco = "su color preferido es blanco";
+                    $color = $blanco;
+                    break; 
+                case "BLANCO":
+                    $blanco = "su color preferido es blanco";
+                    $color = $blanco;
+                    break; 
+                case "verde":
+                    $verde = "su color  preferido es verde";
+                    $color = $verde;
+                    break;
+               case "Verde":
+                    $verde = "su color  preferido es verde";
+                    $color = $verde;
+                    break;
+                case "VERDE":
+                    $verde = "su color  preferido es verde";
+                    $color = $verde;
+                    break;
+                case "rojo":
+                    $rojo = "su color preferido es rojo";
+                    $color = $rojo;
+                    break;
+                case "Rojo":
+                    $rojo = "su color preferido es rojo";
+                    $color = $rojo;
+                    break;
+                case "ROJO":
+                    $rojo = "su color preferido es rojo";
+                    $color = $rojo;
+                    break;
+                case "negro":
+                    $negro = "su color preferido es negro";
+                    $color = $amarilloo;
+                    break;
+                case "Negro":
+                    $negro = "su color preferido esxnegro";
+                    $color = $amarilloo;
+                    break;
+                case "NEGRO":
+                    $negro = "su color preferido es negro";
+                    $color = $amarilloo;
+                    break;
+                case "naranja":
+                    $naranja = "su color preferifo es naranja";
+                    $color = $naranja;
+                    break;
+                case "Naranja":
+                    $naranja = "su color preferifo es naranja";
+                    $color = $naranja;
+                    break;
+               case "NARANJA":
+                    $naranja = "su color preferifo es naranja";
+                    $color = $naranja;
+                    break;
+                case "anaranjado":
+                    $naranja = "su color preferifo es naranja";
+                    $color = $naranja;
+                    break;
+                case "Anaranjado":
+                    $naranja = "su color preferifo es naranja";
+                    $color = $naranja;
+                    break;
+                case "ANARANJADO":
+                    $naranja = "su color preferifo es naranja";
+                    $color = $naranja;
+                    break;
+                case "morado":
+                    $morado = "su color preferido es morado";
+                    $color = $morado;
+                    break;
+                case "Morado":
+                    $morado = "su color preferido es morado";
+                    $color = $morado;
+                    break;
+               case "MORADO":
+                    $morado = "su color preferido es morado";
+                    $color = $morado;
+                    break;
+                case "purpura":
+                    $morado = "su color preferido es morado";
+                    $color = $morado;
+                    break;
+                case "Purpura":
+                    $morado = "su color preferido es morado";
+                    $color = $morado;
+                    break;  
+                case "PURPURA":
+                    $morado = "su color preferido es morado";
+                    $color = $morado;
+                    break;
+                case "cafe":
+                    $cafe = "su color preferido es cafe";
+                    $color = $cafe;
+                    break;
+                case "Cafe":
+                    $cafe = "su color preferido es cafe";
+                    $color = $cafe;
+                    break;   
+                case "CAFE":
+                    $cafe = "su color preferido es cafe";
+                    $color = $cafe;
+                    break;
+
+                default : $color = "su color no esta contemplado";     
+            }
+        }
+        /*gestion de significados*/
+        $significado = $color;
+        switch ($color){
+            case empty($azul):
+                    $azul = "null";
+            case empty($amarillo):
+                    $amarillo = "null";
+            case empty($blanco):
+                    $blanco = "null";
+            case empty($verde):
+                    $verde = "null";
+            case empty($rojo):
+                    $rojo = "null";
+            case empty($negro):
+                    $negro = "null";
+            case empty($naranja):
+                    $naranja = "null";
+            case empty($morado):
+                    $morado = "null";
+            case empty($cafe):
+                    $cafe = "null";            
+        }
+        switch($color){
+                case $azul:
+                    $significado = "significa constancia, autoritarismo y confianza";
+                case $amarillo:
+                    $significado = "significa energía, resplandor y brillantez";
+                case $blanco:
+                    $significado = "significa pureza y bondad";
+                case $verde:
+                    $significado = "significa celos, envidia, Ecología y salud";
+                case $rojo:
+                    $significado = "significa atracción, andrenalina, amor y pasión";
+                case $negro:
+                    $significado = "significa elegancia, mal, noche y obscuridad";
+                case $naranja:
+                    $significado = "significa alegria, creatividad y éxito";
+                case $morado:
+                    $significado = "significa realeza, poder,lugo y ambición";
+                case $cafe:
+                    $significado = "significa Estabilidad, protección y seguridad";
+                            
+        }
         ?>
         <hr>
         <div class=" container border   border-secondary border-4 rounded bg-secondary bg-success p-2" style="--bs-bg-opacity: .1;" id="tablaP">
@@ -88,10 +271,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                         <th scope="row"><?php echo "$nombres"; ?></th>
                         <th scope="row"><?php echo "$direccion"; ?></th>
                         <th scope="row"><?php echo "$telefono"; ?></th>
-                        <th scope="row"><?php print_r("$fechaN") ; ?></th>
+                        <th scope="row">
+                            <?php 
+                                echo"$fechaN[0]"; 
+                                echo"$fechaN[1]";
+                                echo"$fechaN[2]";
+                                echo"$fechaN[3]";
+                                echo"$fechaN[4]";
+                                echo"$fechaN[5]";
+                            ?>
+                        </th>
                         <th scope="row"><?php echo "$color"; ?></th>
-                        <th scope="row"></th>                        
-                        <td colspan="2"></td>
+                        <th scope="row"><?php echo "$significado"?></th>                        
+                        
                     </tr>
                 </tbody>
             </table>
